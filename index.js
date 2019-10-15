@@ -9,13 +9,23 @@ class Person {
         this.name = name;
         this.age = age;
     }
+    // this is a static method, it is only available to the Person class...
+    static describe(subject) {
+        return `${subject.name}, ${subject.age} years old`;
+    }
 
-    describe() 
+    // this is an instance method, it is available to all instances of Person...
+    greet(greeting) {
+        return `Hello, I am ${this.name}. I am ${this.age} years old. This conversation is ${greeting}!`;
+    }
 }
 
 const me = new Person("Sean", 44);
+const jason = new Person("Jason", 45);
 
-console.log(me);
+console.log(Person.describe(jason));
+console.log(jason.greet("super awkward"));
+console.log(me.greet("silly"));
 
 //console.log(me.describe());
 
