@@ -16,12 +16,33 @@ class Person {
   describe() {
     console.log(`${this.name}, ${this.age} years old`);
   }
+
+  static introduce(person) {
+    console.log(`This is ${person.name}, they are ${person.age} years old.`);
+  }
 }
 
 const me = new Person('Sean', 44);
-me.sayHello();
-me.describe();
+const jason = new Person('Jason', 43);
+const sally = 'Foo';
+// me.sayHello();
+// me.describe();
+
+Person.introduce(jason);
+Person.introduce(me);
 
 /*
 Create an object called Teacher derived from the Person class, and implement a method called teach which receives a string called subject, and prints out:
 */
+
+class Teacher extends Person {
+  teach(subject) {
+    console.log(`${this.name} teaches ${subject}`);
+  }
+}
+
+const teacher = new Teacher('Chris');
+
+Teacher.introduce(teacher);
+
+// teacher.teach(`javascript`);
